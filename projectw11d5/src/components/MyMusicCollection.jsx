@@ -10,7 +10,6 @@ const MyMusicCollection = (props) => {
         const { data } = await resp.json();
         console.log(data.slice(0, 4));
         setSongs(data.slice(0, 4));
-        console.log(songs);
       } else {
         throw new Error();
       }
@@ -25,7 +24,7 @@ const MyMusicCollection = (props) => {
   return (
     <>
       <Container>
-        <h2>{props.artist}</h2>
+        <h2 className="mb-4">{props.artist}</h2>
         <Row className="p-0" xs={4}>
           {songs.map((song) => (
             <Col className="text-center" key={song.id}>

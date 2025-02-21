@@ -1,8 +1,19 @@
+import { useState } from "react";
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { fetchSongAction, searchArtisAction } from "../redux/actions";
 // import MyMusicCollection from "./MyMusicCollection";
 
 const MyNavBar = () => {
+  const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
+  // const searchArtist = useSelector((state) => state.search.searchItem);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(searchArtisAction(search));
+    dispatch(fetchSongAction);
+  };
   return (
     <>
       <Container fluid>
@@ -20,8 +31,16 @@ const MyNavBar = () => {
                   <BookFill style={{ fontSize: "1.2em" }} className="me-1" /> Your Library
                 </li>
                 <li className="nav-link">
-                  <Form className="d-flex" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                  <Form className="d-flex" role="search" onSubmit={handleSearch}>
+                    <Form.Control
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                      value={search}
+                      onChange={(e) => {
+                        setSearch(e.target.value);
+                      }}
+                    />
                     <Button variant="outline-secondary" className="border border-light" type="submit">
                       Go
                     </Button>

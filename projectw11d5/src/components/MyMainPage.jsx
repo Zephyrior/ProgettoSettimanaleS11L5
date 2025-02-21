@@ -1,7 +1,15 @@
 import { Col, Container, Row } from "react-bootstrap";
 import MyMusicCollection from "./MyMusicCollection";
+import { useSelector } from "react-redux";
+import MyMusicQuery from "./MyMusicQuery";
 
 const MyMainPage = () => {
+  //   const searchedSongs = useSelector((state) => state.song.searchedSongs);
+  const searchedSongs = useSelector((state) => state.songs.searchedSongs);
+  console.log(searchedSongs);
+  const searchedArtist = useSelector((state) => state.search.searchItem);
+  console.log(searchedSongs);
+  console.log(searchedArtist);
   return (
     <>
       <Container className="p-0" fluid>
@@ -20,6 +28,8 @@ const MyMainPage = () => {
             </Row>
           </Container>
           <Container>
+            {searchedSongs && <MyMusicQuery />}
+            {searchedArtist && <MyMusicCollection artist={searchedArtist} />}
             <MyMusicCollection artist="Cup of Joe" />
             <MyMusicCollection artist="Bini" />
             <MyMusicCollection artist="Dionela" />
