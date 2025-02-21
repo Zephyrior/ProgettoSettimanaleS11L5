@@ -12,7 +12,7 @@ const MyNavBar = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(searchArtisAction(search));
-    dispatch(fetchSongAction);
+    dispatch(fetchSongAction());
   };
   return (
     <>

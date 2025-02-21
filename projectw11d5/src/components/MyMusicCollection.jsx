@@ -24,13 +24,19 @@ const MyMusicCollection = (props) => {
   return (
     <>
       <Container>
-        <h2 className="mb-4">{props.artist}</h2>
+        <h2 style={{ color: "white" }} className="mb-4">
+          {props.artist}
+        </h2>
         <Row className="p-0" xs={4}>
           {songs.map((song) => (
             <Col className="text-center" key={song.id}>
               <Image fluid src={song.album.cover_medium} />
-              <p className="mt-1 mb-0">Track: &quot;{song.title}&quot;</p>
-              <p className="mb-3">Artist: {song.artist.name}</p>
+              <p style={{ color: "white" }} className="mt-1 mb-0">
+                Track: &quot;{song.title}&quot;
+              </p>
+              <p style={{ color: "white" }} className="mb-3">
+                Artist: {song.artist.name}
+              </p>
             </Col>
           ))}
         </Row>

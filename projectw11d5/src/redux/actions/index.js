@@ -1,5 +1,7 @@
 export const SEARCH_ARTIST = "SEARCH_ARTIST";
 export const SEARCH_SONGS = "SEARCH_SONGS";
+export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
+export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 
 export const searchArtisAction = (artist) => ({ type: SEARCH_ARTIST, payload: artist });
 export const searchSongsAction = (songs) => ({ type: SEARCH_SONGS, payload: songs });
