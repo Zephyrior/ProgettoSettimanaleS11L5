@@ -1,7 +1,7 @@
 import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from "../actions";
 
 const initialState = {
-  content: [],
+  favourites: [],
 };
 
 const favouritesReducer = (state = initialState, action) => {
