@@ -11,7 +11,7 @@ export const SELECT_SONG = "SELECT_SONG";
 export const searchArtistAction = (artist) => ({ type: SEARCH_ARTIST, payload: artist });
 export const searchSongsAction = (songs) => ({ type: SEARCH_SONGS, payload: songs });
 export const addtoFavouritesAction = (fave) => ({ type: ADD_TO_FAVOURITES, payload: fave });
-export const removeFromFavourites = (unFave) => ({ type: REMOVE_FROM_FAVOURITES, payload: unFave });
+export const removeFromFavouritesAction = (unFave) => ({ type: REMOVE_FROM_FAVOURITES, payload: unFave });
 // export const setDefaultSongAction = (defaultSong) => ({ type: SET_DEFAULT_SONG, payload: defaultSong });
 export const setCupOfJoeAction = (defaultSong) => ({ type: SET_CUPOFJOE, payload: defaultSong });
 export const setBiniAction = (defaultSong) => ({ type: SET_BINI, payload: defaultSong });

@@ -10,7 +10,7 @@ const MyPlayer = () => {
       <Container fluid style={{ height: "5.5rem", backgroundColor: "#282828", zIndex: "1" }} className="fixed-bottom bg-container pt-1">
         <Row className="h-100">
           <Col className="col-lg-10 offset-lg-2">
-            <Row className="d-flex justify-content-center align-items-center">
+            <Row className={selSong ? "d-flex justify-content-start align-items-center" : "d-flex justify-content-center align-items-center"}>
               {selSong && (
                 <Col className="col-6 col-md-4 d-flex">
                   <div>

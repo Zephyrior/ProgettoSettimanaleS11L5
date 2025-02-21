@@ -28,11 +28,15 @@ const MyNavBar = () => {
             <Container>
               <Image fluid src="./src/assets/logo.png" style={{ width: "131px", height: "40px" }} className="my-4" />
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-link" style={{ color: "rgb(145, 145, 145)", fontSize: "1.5em" }}>
-                  <HouseDoorFill style={{ fontSize: "1.2em" }} className="me-1" /> Home
+                <li className="nav-link" style={{ fontSize: "1.5em" }}>
+                  <a href="#" style={{ textDecoration: "none", color: "rgb(145, 145, 145)" }}>
+                    <HouseDoorFill style={{ fontSize: "1.2em" }} className="me-1" /> Home
+                  </a>
                 </li>
-                <li className="nav-link" style={{ color: "rgb(145, 145, 145)", fontSize: "1.5em" }}>
-                  <BookFill style={{ fontSize: "1.2em" }} className="me-1" /> Your Library
+                <li className="nav-link" style={{ fontSize: "1.5em" }}>
+                  <a href="#" style={{ textDecoration: "none", color: "rgb(145, 145, 145)" }}>
+                    <BookFill style={{ fontSize: "1.2em" }} className="me-1" /> Your Library{" "}
+                  </a>
                 </li>
                 <li className="nav-link">
                   <Form className="d-flex" role="search" onSubmit={handleSearch}>
