@@ -13,6 +13,7 @@ const MyNavBar = () => {
     e.preventDefault();
     dispatch(searchArtisAction(search));
     dispatch(fetchSongAction());
+    setSearch("");
   };
   return (
     <>
