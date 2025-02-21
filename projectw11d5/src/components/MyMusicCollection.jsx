@@ -1,31 +1,43 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { ADD_TO_FAVOURITES } from "../redux/actions";
+import { ADD_TO_FAVOURITES, fetchDefaultSongAction, setSelectSongAction } from "../redux/actions";
 
 const MyMusicCollection = (props) => {
   const dispatch = useDispatch();
-  const [songs, setSongs] = useState([]);
-  const favouriteSongs = useSelector((state) => state.favourites.favourites);
-  console.log(favouriteSongs);
-  const fetchSong = async () => {
-    try {
-      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${props.artist.replace(/ /g, "+").toLowerCase()}`);
-      if (resp.ok) {
-        const { data } = await resp.json();
-        console.log(data.slice(0, 4));
-        setSongs(data.slice(0, 4));
-      } else {
-        throw new Error();
-      }
-    } catch (error) {
-      console.log(error);
+  const defaultSongs = useSelector((state) => {
+    switch (props.artist.toLowerCase()) {
+      case "cup of joe":
+        return state.defaultsongs.cupofjoe;
+      case "bini":
+        return state.defaultsongs.bini;
+      case "dionela":
+        return state.defaultsongs.dionela;
+      default:
+        return [];
     }
-  };
+  });
+  // const [songs, setSongs] = useState([]);
+  // const favouriteSongs = useSelector((state) => state.favourites.favourites);
+  // console.log(favouriteSongs);
+  // const fetchSong = async () => {
+  //   try {
+  //     const resp = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${props.artist.replace(/ /g, "+").toLowerCase()}`);
+  //     if (resp.ok) {
+  //       const { data } = await resp.json();
+  //       console.log(data.slice(0, 4));
+  //       setSongs(data.slice(0, 4));
+  //     } else {
+  //       throw new Error();
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   useEffect(() => {
-    fetchSong();
+    dispatch(fetchDefaultSongAction(props.artist));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.artist]);
+  }, []);
   return (
     <>
       <Container>
@@ -33,8 +45,8 @@ const MyMusicCollection = (props) => {
           {props.artist}
         </h2>
         <Row className="p-0" xs={4}>
-          {songs.map((song) => (
-            <Col className="text-center" key={song.id}>
+          {defaultSongs.map((song) => (
+            <Col className="text-center" key={song.id} onClick={() => dispatch(setSelectSongAction(song))}>
               <Image fluid src={song.album.cover_medium} />
               <Row className="d-flex align-items-center">
                 <Col className="p-0" md={10}>

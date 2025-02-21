@@ -4,7 +4,7 @@ const initialState = {
   searchedSongs: [],
 };
 
-const searchReducer = (state = initialState, action) => {
+const songReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_SONGS:
       return {
@@ -15,4 +15,4 @@ const searchReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default searchReducer;
+export default songReducer;

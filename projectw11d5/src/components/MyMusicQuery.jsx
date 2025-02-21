@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSongAction } from "../redux/actions";
+import { fetchSongAction, setSelectSongAction } from "../redux/actions";
 
 const MyMusicQuery = (props) => {
   const searchedSongs = useSelector((state) => state.songs.searchedSongs);
@@ -22,7 +22,7 @@ const MyMusicQuery = (props) => {
         </h2>
         <Row className="p-0" xs={4}>
           {songs.map((song) => (
-            <Col className="text-center" key={song.id}>
+            <Col className="text-center" key={song.id} onClick={() => dispatch(setSelectSongAction(song))}>
               <Image fluid src={song.album.cover_medium} />
               <p style={{ color: "white" }} className="mt-1 mb-0">
                 Track: &quot;{song.title}&quot;

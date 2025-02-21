@@ -18,7 +18,11 @@ const MyNavBar = () => {
     <>
       <Container fluid>
         <Row>
-          <Col className="d-none d-sm-flex flex-column justify-content-between" sm={2} style={{ backgroundColor: "black", position: "fixed", height: "100vh" }}>
+          <Col
+            className="d-none d-sm-flex flex-column justify-content-between"
+            sm={2}
+            style={{ backgroundColor: "black", position: "fixed", height: "100vh", zIndex: 999 }}
+          >
             {/* top */}
             {/* <div className="d-flex flex-column justify-content-between"> */}
             <Container>
@@ -60,7 +64,11 @@ const MyNavBar = () => {
               </Button>
               <div className="d-flex justify-content-center my-3">
                 <a href="#" style={{ color: " rgb(145, 145, 145)", textDecoration: "none" }} className="me-1">
-                  Cookie Policy
+                  Cookie
+                </a>
+                |
+                <a href="#" style={{ color: " rgb(145, 145, 145)", textDecoration: "none" }} className="mx-1">
+                  Policy
                 </a>
                 |
                 <a href="#" style={{ color: " rgb(145, 145, 145)", textDecoration: "none" }} className="ms-1">
