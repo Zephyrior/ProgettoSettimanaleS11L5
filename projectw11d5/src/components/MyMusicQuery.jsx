@@ -1,11 +1,19 @@
 // import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSongAction } from "../redux/actions";
 
 const MyMusicQuery = (props) => {
   const searchedSongs = useSelector((state) => state.songs.searchedSongs);
   const songs = searchedSongs[0] || [];
+  const searchArtist = useSelector((state) => state.search.searchItem);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchSongAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchArtist]);
   return (
     <>
       <Container>

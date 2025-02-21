@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
-import { fetchSongAction, searchArtisAction } from "../redux/actions";
+import { fetchSongAction, searchArtistAction } from "../redux/actions";
 // import MyMusicCollection from "./MyMusicCollection";
 
 const MyNavBar = () => {
@@ -11,9 +11,8 @@ const MyNavBar = () => {
   // const searchArtist = useSelector((state) => state.search.searchItem);
   const handleSearch = (e) => {
     e.preventDefault();
-    dispatch(searchArtisAction(search));
+    dispatch(searchArtistAction(search));
     dispatch(fetchSongAction());
-    setSearch("");
   };
   return (
     <>
@@ -34,15 +33,17 @@ const MyNavBar = () => {
                 <li className="nav-link">
                   <Form className="d-flex" role="search" onSubmit={handleSearch}>
                     <Form.Control
+                      className="border border-end-0 rounded-start rounded-0"
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
                       value={search}
+                      required
                       onChange={(e) => {
                         setSearch(e.target.value);
                       }}
                     />
-                    <Button variant="outline-secondary" className="border border-light" type="submit">
+                    <Button variant="outline-secondary" className="border border-light border-start-0 rounded-0 rounded-end" type="submit">
                       Go
                     </Button>
                   </Form>

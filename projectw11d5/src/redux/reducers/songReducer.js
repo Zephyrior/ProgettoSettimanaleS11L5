@@ -9,7 +9,7 @@ const searchReducer = (state = initialState, action) => {
     case SEARCH_SONGS:
       return {
         ...state,
-        searchedSongs: [...state.searchedSongs, action.payload],
+        searchedSongs: [action.payload],
       };
     default:
       return state;

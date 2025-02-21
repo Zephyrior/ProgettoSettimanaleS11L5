@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ADD_TO_FAVOURITES } from "../redux/actions";
 
 const MyMusicCollection = (props) => {
   const dispatch = useDispatch();
   const [songs, setSongs] = useState([]);
+  const favouriteSongs = useSelector((state) => state.favourites.favourites);
+  console.log(favouriteSongs);
   const fetchSong = async () => {
     try {
       const resp = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${props.artist.replace(/ /g, "+").toLowerCase()}`);
@@ -35,7 +37,7 @@ const MyMusicCollection = (props) => {
             <Col className="text-center" key={song.id}>
               <Image fluid src={song.album.cover_medium} />
               <Row className="d-flex align-items-center">
-                <Col className="p-0" xs={10}>
+                <Col className="p-0" md={10}>
                   <p style={{ color: "white" }} className="mt-1 mb-0">
                     Track: &quot;{song.title}&quot;
                   </p>
@@ -51,7 +53,7 @@ const MyMusicCollection = (props) => {
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
                     height="25"
-                    fill="currentColor"
+                    fill="#20D05D"
                     className="bi bi-heart-fill"
                     viewBox="0 0 16 16"
                   >

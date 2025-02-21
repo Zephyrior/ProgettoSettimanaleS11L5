@@ -13,7 +13,15 @@ const MyMainPage = () => {
   return (
     <>
       <Container className="p-0" fluid>
-        <Col xs={12} sm={10} style={{ background: "rgb(46, 63, 87)", marginLeft: "auto" }}>
+        <Col
+          xs={12}
+          sm={10}
+          style={{
+            background: "rgb(46, 63, 87)",
+            backgroundImage: "linear-gradient(90deg, rgb(63, 86, 119) 0%, rgba(33, 44, 61, 1) 42%, rgb(15, 21, 29) 100%)",
+            marginLeft: "auto",
+          }}
+        >
           <Container className="p-4">
             <Row>
               <Col xs={9} className="mx-auto">
@@ -32,7 +40,7 @@ const MyMainPage = () => {
             <MyMusicCollection artist="Cup of Joe" />
             <MyMusicCollection artist="Bini" />
             <MyMusicCollection artist="Dionela" />
-            {searchedArtist && <MyMusicCollection artist={searchedArtist} />}
+            {/* {searchedArtist && <MyMusicCollection artist={searchedArtist} />} */}
           </Container>
         </Col>
       </Container>

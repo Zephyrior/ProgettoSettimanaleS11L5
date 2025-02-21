@@ -3,8 +3,10 @@ export const SEARCH_SONGS = "SEARCH_SONGS";
 export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
 export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 
-export const searchArtisAction = (artist) => ({ type: SEARCH_ARTIST, payload: artist });
+export const searchArtistAction = (artist) => ({ type: SEARCH_ARTIST, payload: artist });
 export const searchSongsAction = (songs) => ({ type: SEARCH_SONGS, payload: songs });
+export const addtoFavouritesAction = (fave) => ({ type: ADD_TO_FAVOURITES, payload: fave });
+export const removeFromFavourites = (unFave) => ({ type: REMOVE_FROM_FAVOURITES, payload: unFave });
 
 export const fetchSongAction = () => {
   return async (dispatch, getState) => {
