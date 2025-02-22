@@ -3,6 +3,8 @@ import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { fetchSongAction, searchArtistAction } from "../redux/actions";
+import { Link } from "react-router";
+
 // import MyMusicCollection from "./MyMusicCollection";
 
 const MyNavBar = () => {
@@ -13,6 +15,7 @@ const MyNavBar = () => {
     e.preventDefault();
     dispatch(searchArtistAction(search));
     dispatch(fetchSongAction());
+    setSearch("");
   };
   return (
     <>
@@ -29,14 +32,14 @@ const MyNavBar = () => {
               <Image fluid src="./src/assets/logo.png" style={{ width: "131px", height: "40px" }} className="my-4" />
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-link" style={{ fontSize: "1.5em" }}>
-                  <a href="#" style={{ textDecoration: "none", color: "rgb(145, 145, 145)" }}>
+                  <Link to={"/"} style={{ textDecoration: "none", color: "rgb(145, 145, 145)" }}>
                     <HouseDoorFill style={{ fontSize: "1.2em" }} className="me-1" /> Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-link" style={{ fontSize: "1.5em" }}>
-                  <a href="#" style={{ textDecoration: "none", color: "rgb(145, 145, 145)" }}>
+                  <Link to={"/mylibrary"} style={{ textDecoration: "none", color: "rgb(145, 145, 145)" }}>
                     <BookFill style={{ fontSize: "1.2em" }} className="me-1" /> Your Library{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-link">
                   <Form className="d-flex" role="search" onSubmit={handleSearch}>

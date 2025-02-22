@@ -24,7 +24,7 @@ const MyMainPage = () => {
           }}
         >
           <MyNavLinks />
-          <Container>
+          <Container style={{ paddingBottom: "7rem" }}>
             {searchedSongs && <MyMusicQuery artist={searchedArtist} />}
             <MyMusicCollection artist="Cup of Joe" />
             <MyMusicCollection artist="Bini" />
